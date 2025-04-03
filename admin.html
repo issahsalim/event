@@ -108,10 +108,10 @@
             const title = document.getElementById("eventTitle").value;
             const date = document.getElementById("eventDate").value;
             const description = document.getElementById("eventDescription").value;
-            const image = document.getElementById("eventImage").value;
+            // const image = document.getElementById("eventImage").value;
 
             const events = JSON.parse(localStorage.getItem("events")) || [];
-            events.push({ title, date, description, image });
+            events.push({ title, date, description });
             localStorage.setItem("events", JSON.stringify(events));
 
             Swal.fire("Success", "Event Added!", "success");
