@@ -1,0 +1,115 @@
+  .hero {
+      background: url('img/event2.jpg') no-repeat center center/cover;  
+      color: white;
+      text-align: center;
+      padding: 150px 20px; 
+  }
+
+  .hero h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+  }
+
+
+  .about-section {
+      padding: 50px 20px;
+      text-align: center;
+  }
+
+  .about-img {
+      border-radius: 50%;
+      width: 150px;
+  }
+
+  .feature-section {
+      background: #f8f9fa;
+      padding: 50px 20px;
+  }
+
+  .feature-icon {
+      font-size: 40px;
+      color: #ff6600;
+  }
+
+
+
+
+        /* last sections */
+        .last-part {
+            background-color: #5571eb;
+            width: 100%;
+            min-height: 20rem;
+            color: #fff;
+            margin-top: 4rem;
+            
+        }
+       
+    
+        .last-part main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+    
+        .last-part div {
+            padding: 0px 5rem;
+        }
+    
+        /* all ul */
+        .last-part div ul {
+            display: block;
+        }
+    
+        /* links url */
+        .last-part .link img {
+            width: 40px;
+            padding: 10px 0px;
+            margin: 10px;
+        }
+    
+        .last-part .link img:hover {
+            cursor: pointer;
+            transition: 0.9s;
+            transform: scale(1.09);
+        }
+    
+        .last-part .link {
+            display: flex;
+        }
+    
+        .last-part .link li {
+            list-style: none;
+            white-space: nowrap
+        }
+    
+        @media (max-width: 768px) {
+    
+            
+    
+            body{
+                
+            }
+            /* last section */
+            .last-part main {
+                display: block;
+            }
+    
+            .last-part main div {
+                margin-top: 10px;
+            }
+    
+    
+        }
+    
+        @media (768px<=width<=1000px) {
+            header nav {
+           
+    
+            /* last section */
+            .last-part main {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+    
+    
+            }
+        }
+    } 

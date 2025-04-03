@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+        <nav>
+            <ul>
+                <li>Home</li> 
+                <li>About</li>
+                <li>Service</li>
+            </ul>
+        </nav>
+    </div>
+
+<div class="firstsection"> 
+    <main>
+        <div class="firstInfo">
+            <h3></h3>
+        </div>
+        
+    </main>
+</div>
+
+
+
+</body>
+<style> 
+    table{  
+    }
+    .nav{
+        background-color: red;
+        padding:10px 200px 20px 200px; 
+    }
+    
+ul{
+    display: flex;
+    
+}
+li{
+    list-style: none;
+    margin-left: 10px;
+}
+
+.firstsection{
+    animation: backgroundImage 8s alternate .7s infinite;
+    background-image: url('img/event.jpg');
+    background-size: cover;  
+    position: center;
+    height: 90vh; 
+    width: 100%;  
+}
+
+@keyframes backgroundImage {
+    0%{
+        background-image: url('img/event1.jpg');
+        transform: scale(1);
+        transition-delay: 2s;
+    } 
+    25%{
+        background-image: url('img/event.jpg');
+        transform: scale(1.1);
+    } 
+    50%{
+        background-image: url("img/event1.jpg");
+        transform: scale(1);
+    } 
+    75%{
+        background-image: url("img/event.jpg");
+        transform: scale(1.1); 
+    }  
+}
+</style>
+</html>

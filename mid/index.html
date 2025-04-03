@@ -1,0 +1,380 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+   
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+     
+    <title>salim </title>
+  </head>
+  <body>
+
+<style>
+    .images a {
+        font-size: 33px;
+
+    }
+
+    .fa-brands:hover {
+        color: tomato;
+        transition: 0.5s;
+
+        transform: translateY(-2px);
+    }
+
+    .footer-img {
+        transform: translatex(-35px)
+    }
+
+    .text-white {
+        font-size: 35px;
+    }
+</style>
+
+    <!-- NAV BAR -->
+    <div class="">
+        <div class="control-top">
+            <div class="image">
+                <a href=""><i class="fa-solid fa-blog nav-image"></i> </a>
+            </div>
+            <ul id="list"> 
+                <li><a href="index.html" class="listnames">HOME</a></li>
+                <li><a href="#ABOUT" class="listnames">ABOUT</a></li>
+                <li><a href="#service" class="listnames">SERVICE</a></li>
+                <li><a href="#CONTACT" class="listnames">CONTACT</a></li>
+    
+                <div id="closeBar" onclick="closeService()">&#9776;</div>
+            </ul>
+            <div id="openBar" onclick="openService()">&#9776;</div>
+        </div> 
+    </div>
+<!-- INTRODUCTION -->
+
+<div class="introduction" data-aos="zoom-in"> 
+    <div class="ctrlIntro">
+        
+        <h3>
+            Hi i am <span class="name">Issah</span> <br />
+            Abdul Salim boresa
+        </h3>
+    </div>
+</div>
+
+<!-- SERVICE SECTION -->
+<div id="service">
+    <h3 class="service-header" data-aos="flip-up">MY SERVICE</h3>
+    <nav class="about-row" data-aos="zoom-in-up">
+        <div class=""> 
+            <h3>Developer</h3>
+            <p class="aboutservice">A dedicated developer who is specialize in both front-end and back-end development i use tool like react js for front-end and django for back-end</p>
+        </div>
+        <div class=""> 
+            <h3>Computer Technical</h3>
+            <p class="aboutservice">
+                I have a strong skills in maintaining your computer to work efficient I also do services like windows installation, office and windows activation and any software issues you can think off.
+            </p> 
+        </div>
+        <div class=""> 
+            <h3>VIdeo Editor</h3>
+            <p class="aboutservice">
+                Am a proud video editor who
+            </p>
+        </div>
+
+    </nav>
+</div>
+
+<!-- ABOUT SECTION -->
+<div class="aboutme" id="ABOUT">
+    <h3 class="about-title">ABOUT ME</h3>
+    <div class="myinfo">
+        <p>
+            Hello! I'm Abdul-Salim, a versatile creator with a passion for video
+            editing and web development. As a video editor, I specialize in
+            crafting captivating visual stories, adding a dynamic touch to every
+            project. Simultaneously, my web development skills bring digital
+            experiences to life, ensuring seamless and user-friendly designs. With
+            a commitment to safeguarding online data, I extend my expertise to
+            enhance digital resilience. Let's collaborate and explore the endless
+            possibilities of creativity and innovation!
+        </p>
+    </div>
+
+    <div class="aboutinfo">
+        <div class="left-image" data-aos="fade-right">
+           <img src="img/me1.jpg" alt="">
+        </div>
+
+         <div class="rightsideabout" data-aos="fade-left">
+            <div class="tab-tittle">
+                <p class="tab-links active-link" onclick='ShowTab("education"), activeLink(this)'>
+                    EDUCATION
+                </p> 
+                <p class="tab-links" onclick='ShowTab("skills"), activeLink(this)'>SKILLS</p>
+                <p class="tab-links" onclick='ShowTab("experience" ), activeLink(this)'>EXPERIENCE</p>
+            </div>   
+
+            <!-- education info --> 
+            <div class="tab-content active-content" id="education">
+                <ul>   
+                    <h4 class="about-header">20016-2019</h4>
+                    <li>YEJI BOARDING SCHOOL (Y.B.S)</li>
+                    <h4 class="about-header">2019-2022</h4>
+                    <li>ISLAMIC SNR HIGH</li>
+                    <h4 class="about-header">2022-current</h4>
+                    <li>UNIVERSITY OF ENERGY AND NATURAL RESOURCES</li>
+                </ul>
+            </div>
+
+            <!-- skills info -->
+            <div class="tab-content" id="skills">
+                <ul> 
+                    <h4 class="about-header">VIDEO EDITING</h4>
+                    <li>EDITING YOUR VIDEO WITH INCREDIBLE EXPERIENCE</li>
+                    <h4 class="about-header">WEB DEVELOPMENT</h4>
+                    <li>BUILDING A RESPONSIVE WEB WITH HIGH EXPER</li>
+                    <h4 class="about-header">CYBER SECURITY</h4>
+                    <li>PROTECTING YOUR DATA && PERSONAL INFO SAFE</li>
+                </ul>
+            </div>
+
+            <!-- experience info -->
+            <div class="tab-content" id="experience">
+                <ul>
+                    <h4 class="about-header">2020-current</h4>
+                    <li>Web DEVELOPMENT</li>
+                    <h4 class="about-header">2019-2022</h4>
+                    <li>WEB DEVELOPMENT</li>
+                    <h4 class="about-header">2021-current</h4>
+                    <li>CYBER SECURITY</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--CONTACT FORMS-->
+<div class="contact-box" id="CONTACT">
+    <main>
+        <div class="left-contact" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+
+            <h3>Contact Us</h3>
+            <a href="mailto:" class="email"><i class="fa-regular fa-envelope mx-2"></i>issahsalim@gamil.com</a>
+
+            <p class="phone">
+                <a href="" class="phone"><i class="fa-solid fa-phone mx-2"></i>0596878044</a>
+            </p>
+
+            <div class="images">
+                <!-- youtube in forms -->
+                <a href="" class="text-white "><i class="fa-brands fa-square-youtube"></i></a>
+
+                <!-- twitter in forms -->
+                <a href="" class="text-white "><i class="fa-brands fa-square-x-twitter"></i></a>
+
+                <!-- instagram in forms -->
+                <a href="" class="text-white "><i class="fa-brands fa-instagram"></i></a>
+
+                <!-- facebook in forms -->
+                <a href="" class="text-white "><i class="fa-brands fa-facebook"></i></a>
+
+            </div>
+            <a href="salim cv.pdf" class="download_cv" download>Download CV</a>
+        </div>
+
+        <div class="right" data-aos="flip-up">
+            <form method="post" id="myForm">
+                <input type="text" name="name" placeholder="Your Name" class="name" id="name" required />
+                <input type="email" name="email" placeholder="Your Email" class="form-mail" required />
+
+                <div class="mt-3">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"
+                        placeholder="message"></textarea>
+                </div>
+                <button type="submit" class="btn ">Submit</button>
+
+
+            </form>
+        </div>
+    </main>
+</div>
+<p></p>
+
+<!-- FOOTER SECTION -->
+<div class="card mt-3  cars" data-aos="zoom-in-up">
+    <div class="card-header">
+        <marquee behavior="" direction="">I AM THE ISSAH ABDUL-SALIM BORESA </marquee>
+    </div>
+    <div class="card-body footer">
+
+        <!-- FOOTER  FOLLOW-->
+        <div class="footer-solink">
+            <h5>FOLLOW ME</h5>
+            <div class="images footer-img">
+                <a href="" class="text-black "><i class="fa-brands fa-facebook"></i></a>
+
+                <a href="https://shorturl.at/cioy5" class="text-black"><i class="fa-brands fa-youtube"></i> </a>
+
+                <a href="" class="text-black"><i class="fa-brands fa-square-x-twitter "></i></a>
+
+                <a href="" class="text-black"><i class="fa-brands fa-square-instagram"></i> </a>
+            </div>
+        </div>
+
+
+        <!-- FOOTER BASIC INFO  -->
+        <div class="footer-about">
+            <h5>Basic info</h5>
+            <div class="footer-services">
+                <a href="#service" class="footerbasic">service</a>
+                <a href="#CONTACT" class="footerbasic">Contact</a>
+                <a href="#ABOUT" class="footerbasic">About Me</a>
+            </div>
+        </div>
+
+        <!-- FOOTER EVENT -->
+        <div class="footer-event">
+            <h5>Events</h5>
+            <div class="footer-event-links">
+                <a href="{% url 'skills' %}" class="footerevent">Acquiring skills</a>
+                <a href="{% url 'training' %}" class="footerevent">Free training</a>
+                <a href="{% url 'mentor' %}" class="footerevent">mentorship</a>
+            </div>
+        </div>
+    </div> 
+    <hr />
+    <div class="hire"><a href="mailto:issahsalim233@gamil.com" class="btn btn-primary ">Hire Me</a></div>
+    <!-- location -->
+    <div class="d-flex justify-content-center">
+        <a href="https://shorturl.at/pqrFG" class="text-black text-decoration-none"><i
+                class="fa-solid fa-location-dot mx-1"></i>Ghana,Yeji-Kojo Buffour</a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="d-flex justify-content-center">
+        <p>&copy; <span id="year"> </span> issahsalim All rights reserved</p>
+    </div>
+</div>
+
+  <!-- Top scroll btn -->
+    <div class="scrolling">
+      <button id="btn"><i class="fa-brands fa-google-scholar"></i></button>
+    </div>
+
+   
+    
+  <script>
+      let current_year = document.getElementById("year");
+      let sidebar = document.getElementById("list");
+      let open_bar = document.getElementById("openBar");
+      let close_bar = document.getElementById("closeBar");
+      let message = document.getElementById("mess");
+      let btn = document.querySelector(".btn");
+      let ScrollTop = document.getElementById("btn");
+      
+      function gettingCurrentYear() {
+        let getDate = new Date();
+        let getYear = getDate.getFullYear();
+        current_year.textContent = getYear;
+      }
+      gettingCurrentYear();
+
+      const NavbarOperation = () => {
+        //  Showing nave bar
+        open_bar.addEventListener("click", () => {
+          sidebar.style.right = "0";
+          
+        });
+
+        // HIDDEN NAVBAR
+        close_bar.addEventListener("click", () => {
+          sidebar.style.right = "-10rem";
+        });
+      }; 
+      NavbarOperation();
+
+      // RENDERING ABOUT ME INFO
+      let tabcontent = document.getElementsByClassName("tab-content");
+      let tablink=document.getElementsByClassName("tab-links")
+      const ShowTab = (tanId) => {
+        for (tabcontents of tabcontent) {
+          tabcontents.classList.remove("active-content");
+          document.getElementById(tanId).classList.add("active-content");
+        }
+           
+      };
+     function activeLink(ColorChange){
+            let headers=document.querySelectorAll(".tab-links")
+            headers.forEach(header=>{
+                header.classList.remove("active-link")
+            })
+
+            ColorChange.classList.add("active-link")
+       }
+
+      const ScrollFunction = () => {
+
+        if (
+          document.body.scrollTop > 120 ||
+          document.documentElement.scrollTop > 120
+        ) {
+          ScrollTop.style.display = "block";
+        } else {
+          ScrollTop.style.display = "none";
+        }
+      };
+
+      window.addEventListener("scroll", () => {
+        ScrollFunction();
+      });
+
+      ScrollTop.addEventListener("click", () => {
+
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      });
+
+
+ 
+     </script>
+
+<!-- animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  
+<!-- Bootstrap -->
+   <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="asnonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>

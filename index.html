@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUP10</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<style>
+    body {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+    }
+
+    #scrollToTop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        z-index: 100;
+    }
+
+    /* Full-Screen Swiper */
+    .swiper {
+        width: 100%;
+        height: 80vh;
+        margin-top: 20px;
+    }
+
+    /* Set Background Images with Gradient */
+    .slide1,
+    .slide2,
+    .slide3 {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        object-fit: cover;
+    }
+
+    .slide1 {
+        background-image: url("img/event3.webp");
+    }
+
+    .slide2 {
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8) 20%, rgba(255, 255, 255, 0) 70%),
+            url("img/event2.jpg");
+    }
+
+    .slide3 {
+        background-image: url("img/event4.webp");
+    }
+
+    /* Overlay Content */
+    .overlay {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        color: black;
+        text-align: left;
+        padding-left: 10%;
+        z-index: 2;
+    }
+
+    /* Animations for Text */
+    .overlay h1,
+    .overlay p {
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeSlideIn 1.5s ease-in-out forwards;
+    }
+
+    .overlay h1 {
+        font-size: 3rem;
+        animation-delay: 0.3s;
+    }
+
+    .overlay p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        animation-delay: 0.6s;
+    }
+
+    .overlay .btn {
+        padding: 10px 25px;
+        font-size: 1.2rem;
+        border-radius: 25px;
+        transition: transform 2s opacity 1s;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeUp 1.5s ease-in-out 0.9s forwards;
+    }
+
+
+    /* Button Hover Effect */
+    .overlay .btn:hover {
+        transform: scale(1.1);
+    }
+
+
+    .stats-section {
+        background: url('https://source.unsplash.com/1600x900/?event,conference') no-repeat center center/cover;
+        position: relative;
+        padding: 80px 0;
+        color: white;
+    }
+
+    .stats-section .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 50, 100, 0.7);
+        /* Dark overlay */
+    }
+
+    .stat-item {
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+    }
+
+    .stat-item i {
+        font-size: 40px;
+        margin-bottom: 10px;
+        color: #ffcc00;
+        /* Gold color */
+    }
+
+    .stat-item h3 {
+        font-size: 35px;
+        font-weight: bold;
+    }
+
+    .stat-item p {
+        font-size: 18px;
+    }
+
+    .about-section {
+        padding: 80px 0;
+    }
+
+    .section-title {
+        font-size: 28px;
+        font-weight: bold;
+        position: relative;
+    }
+
+
+    .custom-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .custom-list li {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .custom-list li i {
+        color: #007bff;
+        margin-right: 8px;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .stats-section {
+            padding: 50px 0;
+        }
+    }
+
+    /* Fade & Slide-in Animation */
+    @keyframes fadeSlideIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeUp {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 786px) {
+        .swiper {
+            width: 100%;
+            margin-top: 30px;
+            height: 60vh;
+        }
+    }
+
+    /* Gallery  */
+    .gallery-section {
+        padding: 30px 0;
+        overflow: hidden;
+        /* Prevents overflow issues */
+        white-space: nowrap;
+    }
+
+    .gallery-wrapper {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .galleryLeft {
+        display: flex;
+        gap: 20px;
+        animation: scrollLeft 30s linear infinite;
+    }
+
+    .galleryRight {
+        display: flex;
+        gap: 20px;
+        animation: scrollRight 30s linear infinite;
+    }
+
+    .gallery img {
+        width: 300px;
+        height: 200px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 4s;
+
+    }
+
+    .gallery img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Smooth scrolling effect */
+    @keyframes scrollLeft {
+        from {
+            transform: translateX(50%);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    @keyframes scrollRight {
+        from {
+            transform: translateX(-50%);
+        }
+
+        to {
+            transform: translateX(50%);
+        }
+    }
+</style>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-sm ">
+        <div class="container color-white">
+            <a class="navbar-brand fw-bold text-white" href="#">GROUP10</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="events.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link text-white" href="signup.html">Signup</a></li> -->
+                    <li class="nav-item"><a class="nav-link text-white" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <div class="overlay">
+                    <h1>Welcome to EventMaster</h1>
+                    <p>Plan, organize, and experience unforgettable events.</p>
+                    <a href="#" class="btn btn-primary fw-bold">Explore Events</a>
+                </div>
+            </div>
+            <div class="swiper-slide slide2">
+                <div class="overlay">
+                    <h1>Book Your Spot</h1>
+                    <p>Reserve your place at the most exciting events.</p>
+                    <a href="#" class="btn btn-warning fw-bold">Book Now</a>
+                </div>
+            </div>
+            <div class="swiper-slide slide3">
+                <div class="overlay">
+                    <h1 class="text-white">Manage Your Events</h1>
+                    <p class="text-white fw-bold">Easily create and oversee event details.</p>
+                    <a href="#" class="btn btn-primary fw-bold">Get Started</a>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination & Navigation -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    <!-- About Section -->
+    <section class="about-section container">
+        <h2 data-aos="fade-up">Welcome to <strong>GROUP10 Event Management Sys</strong></h2>
+        <p data-aos="fade-up">Your all-in-one platform for managing successful events, from ticketing to attendee
+            engagement.</p>
+        <img src="img/event.jpg" alt="Event Manager" class="about-img mt-3" data-aos="zoom-in">
+        <h4 class="mt-2" data-aos="zoom-in">We help you make events hassle-free</h4>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="feature-section text-center mb-4">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1200">
+                    <i class="feature-icon bi bi-ticket-fill"></i>
+                    <h4>Available Events</h4>
+                    <p>Check out our event and i promote you may like it </p>
+                    <div class="d-flex justify-content-center">
+                        <a href="ticket.html" class="btn btn-primary"> Start </a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1200">
+                    <i class="feature-icon bi bi-calendar-event-fill"></i>
+                    <h4>Event Planning</h4>
+                    <p>Organize events seamlessly with powerful scheduling tools.</p>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary" onclick="planEvent()"> Start </button>
+                    </div>
+                </div>
+
+                <div class="col-md-4" data-aos="zoom-in-up" data-aos-duration="1200">
+                    <i class="feature-icon bi bi-people-fill"></i>
+                    <h4>Attendee Management</h4>
+                    <p>Track and engage attendees before, during, and after events.</p>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary" onclick="attendee()"> Start </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- details -->
+    <section class="stats-section " data-aos="fade-right" data-aos-duration="1200">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>1500+</h3>
+                        <p>Successful Events</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>250+</h3>
+                        <p>Expert Event Planners</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <i class="fas fa-smile"></i>
+                        <h3>5000+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <i class="fas fa-award"></i>
+                        <h3>10+</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>stats-section
+
+    <section class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Content -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="section-title">Who We Are</h2>
+                    <p>
+                        Welcome to <strong>Ours Events</strong>, your premier event management company! 🎉 We
+                        specialize in
+                        organizing corporate events, weddings, concerts, and private parties with precision and
+                        creativity.
+                    </p>
+                    <p>
+                        Our team ensures seamless planning, creative execution, and unforgettable experiences tailored
+                        to
+                        your needs.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="custom-list">
+                                <li><i class="fas fa-check-circle"></i> Corporate & Business Events</li>
+                                <li><i class="fas fa-check-circle"></i> Luxury Weddings</li>
+                                <li><i class="fas fa-check-circle"></i> Concerts & Festivals</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="custom-list">
+                                <li><i class="fas fa-check-circle"></i> Private Parties</li>
+                                <li><i class="fas fa-check-circle"></i> Award Ceremonies</li>
+                                <li><i class="fas fa-check-circle"></i> Seamless Event Execution</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Image -->
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <img src="img/event2.jpg" class="img-fluid rounded shadow" alt="Event Planning">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Gallery -->
+
+    <!-- scroll left -->
+
+    <div class="" id="about">
+        <h3 class="text-center fw-bold">SOME EVENT IMAGES</h3>
+        <section class="gallery-section">
+            <div class="gallery-wrapper">
+                <div class="gallery galleryLeft">
+                    <img src="img/event.jpg" alt="Event 1">
+                    <img src="img/event2.jpg" alt="Event 2">
+                    <img src="img/event3.webp" alt="Event 3">
+                    <img src="img/event4.webp" alt="Event 4">
+                    <img src="img/event.jpg" alt="Event 5">
+                </div>
+            </div>
+            <!-- scroll right -->
+        </section>
+        <!-- scroll right -->
+        <section class="gallery-section">
+            <div class="gallery-wrapper">
+                <div class="gallery galleryRight">
+                    <img src="img/event.jpg" alt="Event 1">
+                    <img src="img/event2.jpg" alt="Event 2">
+                    <img src="img/event3.webp" alt="Event 3">
+                    <img src="img/event4.webp" alt="Event 4">
+                    <img src="img/event.jpg" alt="Event 5">
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- footer -->
+    <section class="last-part" data-aos="fade-up">
+        <main>
+            <div class="follow">
+                <h2 class="text-center" style="white-space: nowrap;">Follow Us</h2>
+                <nav class="link  d-flex justify-content-center ">
+                    <li><img src="img/4.png" alt=""></li>
+                    <li><img src="img/5.png" alt=""></li>
+                    <li><img src="img/3f.png" alt=""> </li>
+                    <li><img src="img/9.png" alt=""></li>
+                </nav>
+            </div>
+
+            <div class="contacts">
+                <h2 class="text-center" style="white-space: nowrap;">contacts Info</h2>
+                <ul class="infos text-center">
+                    <li class="list-group-item">Terms</li>
+                    <li class="list-group-item">Chapters</li>
+                    <li class="list-group-item">Lead Terms</li>
+                    <li class="list-group-item">Privacy</li>
+                </ul>
+            </div>
+
+            <div class="event" style="white-space: nowrap;">
+                <h2 class="text-center">Events</h2>
+                <ul class="text-center">
+                    <li class="list-group-item">Upcoming Events</li>
+                    <li class="list-group-item">About Us</li>
+                    <li class="list-group-item">Movement</li>
+                    <li class="list-group-item">Terms</li>
+                </ul>
+
+            </div>
+        </main>
+
+    </section>
+
+    <button id="scrollToTop"><i class="fas fa-arrow-up"></i></button>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var swiper = new Swiper(".mySwiper", {
+                effect: "fade",
+                loop: true,
+                speed: 1500,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+
+            });
+
+            var scrollToTopBtn = document.getElementById("scrollToTop");
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 200) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            });
+
+            scrollToTopBtn.addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+
+        });
+
+        function attendee() {
+            Swal.fire({
+                icon: "info",
+                html: `<b> Please humble for this feature wai it will soon be opened!</br>`,
+            })
+        }
+
+        const planEvent = () => {
+            Swal.fire({
+                icon: "info",
+                html: `Please be patient this feature is not yet open`,
+            })
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+
+</html>

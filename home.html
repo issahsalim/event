@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .moving-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .moving-left {
+            animation: moveLeft 10s linear infinite;
+        }
+        .moving-right {
+            animation: moveRight 10s linear infinite;
+        }
+        @keyframes moveLeft {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+        @keyframes moveRight {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Event Manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#booking">Booking</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <header id="home" class="bg-primary text-white text-center py-5">
+        <h1>Welcome to Our Event Management System</h1>
+    </header>
+    
+    <section id="about" class="container py-5" data-aos="fade-up">
+        <h2>About Us</h2>
+        <p>We organize and manage amazing events seamlessly.</p>
+    </section>
+    
+    <section id="events" class="container py-5" data-aos="fade-left">
+        <h2>Upcoming Events</h2>
+        <p>Check out our latest events!</p>
+    </section>
+    
+    <section class="moving-section">
+        <img src="https://via.placeholder.com/150" class="moving-left" alt="Moving Left">
+        <img src="https://via.placeholder.com/150" class="moving-right" alt="Moving Right">
+    </section>
+    
+    <section id="booking" class="container py-5" data-aos="fade-right">
+        <h2>Book an Event</h2>
+        <p>Reserve your spot now!</p>
+    </section>
+    
+    <section id="contact" class="container py-5" data-aos="fade-up">
+        <h2>Contact Us</h2>
+        <p>Get in touch for more details.</p>
+    </section>
+    
+    <div class="scroll-top" onclick="scrollToTop()">▲</div>
+    
+    <script>
+        AOS.init();
+
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.scroll-top').fadeIn();
+            } else {
+                $('.scroll-top').fadeOut();
+            }
+        });
+
+        function scrollToTop() {
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
