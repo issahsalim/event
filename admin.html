@@ -28,19 +28,28 @@
             </div>
         </nav>
 
+        <style>
+            .contact_info{
+                overflow-x: scroll; 
+            }
+        </style>
+
     <div class="container mt-5">
         <h2>Contact Messages</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Message</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="contactMessagesTable"></tbody>
-        </table>
+        <div class="contact_info">
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="contactMessagesTable"></tbody>
+            </table>
+        </div>
     </div>
 
     <div class="container mt-5">
@@ -61,103 +70,112 @@
     </div>
 
 
-    <script>
-        // Load contact messages from localStorage
-        function loadContactMessages() {
-            const messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
-            const table = document.getElementById("contactMessagesTable");
-            table.innerHTML = "";
-            if (messages.length === 0) {
-                table.innerHTML = "<tr><td colspan='4'>No messages</td></tr>";
-            } else {
-                messages.forEach((message, index) => {
-                    table.innerHTML += `
-                        <tr>
-                            <td>${message.name}</td>
-                            <td>${message.email}</td>
-                            <td>${message.message}</td>
-                            <td><button class="btn btn-danger" onclick="deleteMessage(${index})">Delete</button></td>
-                        </tr>
-                    `;
-                });
-            }
-        }
-
-        // Delete a contact message
-        function deleteMessage(index) {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to undo this action!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonText: "Yes, delete it!",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    const messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
-                    messages.splice(index, 1);
-                    localStorage.setItem("contactMessages", JSON.stringify(messages));
-                    loadContactMessages();
-                    Swal.fire("Deleted!", "Your message has been deleted.", "success");
-                }
-            });
-        }
-
-        // Handle Add Event
-        document.getElementById("addEventForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            const title = document.getElementById("eventTitle").value;
-            const date = document.getElementById("eventDate").value;
-            const description = document.getElementById("eventDescription").value;
-            // const image = document.getElementById("eventImage").value;
-
-            const events = JSON.parse(localStorage.getItem("events")) || [];
-            events.push({ title, date, description });
-            localStorage.setItem("events", JSON.stringify(events));
-
-            Swal.fire("Success", "Event Added!", "success");
-            this.reset() 
-            loadRegisteredEvents();
-        });
-
-        // Load registered events
-        function loadRegisteredEvents() {
-            const events = JSON.parse(localStorage.getItem("events")) || [];
-            const list = document.getElementById("eventList");
-            list.innerHTML = "";
-            events.forEach((event, index) => {
-                list.innerHTML += `
-                    <li class="list-group-item">
-                        <h5>${event.title}</h5>
-                        <p>${event.date}</p>
-                        <p>${event.description}</p>
-                        <button class="btn btn-danger" onclick="deleteEvent(${index})">Delete Event</button>
-                    </li>
+<script>
+    // Load contact messages from localStorage
+    function loadContactMessages() {
+        const messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
+        const table = document.getElementById("contactMessagesTable");
+        table.innerHTML = "";
+        if (messages.length === 0) {
+            table.innerHTML = "<tr><td colspan='4'>No messages</td></tr>";
+        } else {
+            messages.forEach((message, index) => {
+                table.innerHTML += `
+                    <tr>
+                        <td>${message.name}</td>
+                        <td>${message.email}</td>
+                        <td>${message.message}</td>
+                        <td><button class="btn btn-danger" onclick="deleteMessage(${index})">Delete</button></td>
+                    </tr>
                 `;
             });
         }
+    }
 
-        // Delete an event
-        function deleteEvent(index) {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "This event will be deleted!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonText: "Yes, delete it!",
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    const events = JSON.parse(localStorage.getItem("events")) || [];
-                    events.splice(index, 1);
-                    localStorage.setItem("events", JSON.stringify(events));
-                    loadRegisteredEvents();
-                    Swal.fire("Deleted!", "Event has been deleted.", "success");
-                }
-            });
+    // Delete a contact message
+    function deleteMessage(index) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to undo this action!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const messages = JSON.parse(localStorage.getItem("contactMessages")) || [];
+                messages.splice(index, 1);
+                localStorage.setItem("contactMessages", JSON.stringify(messages));
+                loadContactMessages();
+                Swal.fire("Deleted!", "Your message has been deleted.", "success");
+            }
+        });
+    }
+
+    // Handle Add Event
+    document.getElementById("addEventForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const title = document.getElementById("eventTitle").value;
+        const date = document.getElementById("eventDate").value;
+        const description = document.getElementById("eventDescription").value;
+
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date().toISOString().split("T")[0];
+
+        // Check if selected date is in the past
+        if (date < today) {
+            Swal.fire("Error", "You cannot schedule an event in the past!", "error");
+            return;
         }
 
-        loadContactMessages();
+        const events = JSON.parse(localStorage.getItem("events")) || [];
+        events.push({ title, date, description });
+        localStorage.setItem("events", JSON.stringify(events));
+
+        Swal.fire("Success", "Event Added!", "success");
+        this.reset()
         loadRegisteredEvents();
-    </script>
+    });
+
+    // Load registered events
+    function loadRegisteredEvents() {
+        const events = JSON.parse(localStorage.getItem("events")) || [];
+        const list = document.getElementById("eventList");
+        list.innerHTML = "";
+        events.forEach((event, index) => {
+            list.innerHTML += `
+                <li class="list-group-item">
+                    <h5>${event.title}</h5>
+                    <p>${event.date}</p>
+                    <p>${event.description}</p>
+                    <button class="btn btn-danger" onclick="deleteEvent(${index})">Delete Event</button>
+                </li>
+            `;
+        });
+    }
+
+    // Delete an event
+    function deleteEvent(index) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "This event will be deleted!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const events = JSON.parse(localStorage.getItem("events")) || [];
+                events.splice(index, 1);
+                localStorage.setItem("events", JSON.stringify(events));
+                loadRegisteredEvents();
+                Swal.fire("Deleted!", "Event has been deleted.", "success");
+            }
+        });
+    }
+
+    loadContactMessages();
+    loadRegisteredEvents();
+</script>
+
 </body>
 
 </html>
