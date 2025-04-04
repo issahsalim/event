@@ -13,7 +13,7 @@ document.getElementById("adminLoginForm").addEventListener("submit", function (e
     let adminID = document.getElementById("adminID").value;
 
     let correctAdminID = [
-        "UEB3237122", "UEB3211422", "UEB3236322", "UEB3236422", "UEB3236522",
+        "UEB3211522", "UEB3211422", "UEB3236322", "UEB3236422", "UEB3236522",
         "UEB3236622", "UEB3236722", "UEB3237022",
         "UEB3237222", "UEB3237322", "UEB3237422",
     ]
