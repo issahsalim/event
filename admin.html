@@ -28,11 +28,14 @@
     </nav>
 
     <div class="container mt-5">
-        <h2>Contact Messages</h2>
-        <table class="table">
-            <thead><tr><th>Name</th><th>Email</th><th>Message</th><th>Action</th></tr></thead>
-            <tbody id="contactMessagesTable"></tbody>
-        </table>
+        <h2 class="text-center">Contact Messages</h2>
+        <contact_info>
+            
+            <table class="table">
+                <thead><tr><th>Name</th><th>Email</th><th>Message</th><th>Action</th></tr></thead>
+                <tbody id="contactMessagesTable"></tbody>
+            </table>
+        </contact_info>
     </div>
 
     <div class="container mt-5">
@@ -50,18 +53,29 @@
         <ul id="eventList" class="list-group"></ul>
     </div>
 
+    <style>
+    @media (max-width:868px) {
+        .contact_info,
+        .register_info{
+            overflow-x: scroll;
+        }
+    }
+    </style>
     <div class="container mt-5">
         <h2 class="text-center">All Registered Events</h2> 
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Event</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody id="registrationsTable"></tbody>
-        </table>
+        <div class="register_info">
+            
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="registrationsTable"></tbody>
+            </table>
+        </div>
     </div>
 
 
