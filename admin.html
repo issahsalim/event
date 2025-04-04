@@ -65,6 +65,7 @@
 }
 
     </style>
+    
     <div class="container mt-5">
         <h2 class="text-center">All Registered Events</h2> 
         <div class="register_info">
@@ -125,7 +126,7 @@
             if (date < today) {
                 Swal.fire("Error", "You cannot schedule an event in the past!", "error");
                 return;
-            }
+            } 
             const events = JSON.parse(localStorage.getItem("events")) || [];
             events.push({ title, date, description });
             localStorage.setItem("events", JSON.stringify(events));
